@@ -10,14 +10,42 @@ android {
         }
     }
     compileSdkVersion 27
-    defaultConfig {
-        applicationId "su.css3.openwithelementum"
-        minSdkVersion 23
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.1"
-        setProperty("archivesBaseName", "OpenWithElementum-" + versionName)
+
+    def versionPropsFile = file('version.properties')
+    if (versionPropsFile.canRead()) {
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        def value = 0
+        def runTasks = gradle.startParameter.getTaskNames()
+        for (String item : runTasks) {
+            if (item.contains('assembleRelease')) {
+                value = 1;
+                break;
+            }
+        }
+
+        def versionMajor = 1
+        def versionMinor = 1
+        def versionPatch = versionProps['VERSION_PATCH'].toInteger() + value
+        def versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
+
+        versionProps['VERSION_PATCH'] = versionPatch.toString()
+        versionProps['VERSION_BUILD'] = versionBuild.toString()
+        versionProps.store(versionPropsFile.newWriter(), null)
+
+        defaultConfig {
+            applicationId "su.css3.openwithelementum"
+            minSdkVersion 23
+            targetSdkVersion 27
+            versionCode versionBuild
+            versionName "${versionMajor}.${versionMinor}.${versionPatch} (${versionBuild}) Release"
+            setProperty("archivesBaseName", "OpenWithElementum-${versionMajor}.${versionMinor}.${versionPatch}")
+        }
+    } else {
+        throw new GradleException("Could not read version.properties!")
     }
+
     buildTypes {
         release {
             minifyEnabled true
