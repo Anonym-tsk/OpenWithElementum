@@ -34,12 +34,17 @@ android {
         versionProps['VERSION_BUILD'] = versionBuild.toString()
         versionProps.store(versionPropsFile.newWriter(), null)
 
+        def versionString = "${versionMajor}.${versionMinor}.${versionPatch}"
+        if (!value) {
+            versionString += " build ${versionBuild}"
+        }
+
         defaultConfig {
             applicationId "su.css3.openwithelementum"
             minSdkVersion 23
             targetSdkVersion 27
             versionCode versionBuild
-            versionName "${versionMajor}.${versionMinor}.${versionPatch} (${versionBuild}) Release"
+            versionName versionString
             setProperty("archivesBaseName", "OpenWithElementum-${versionMajor}.${versionMinor}.${versionPatch}")
         }
     } else {
