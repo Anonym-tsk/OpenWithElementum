@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:title="Elementum wait timeout"
+        android:defaultValue="10"
+        android:key="timeout"
+        android:dialogTitle="Timeout (3-60 seconds)"
+        android:inputType="number"
+        android:summary="Application will wait Elementum if it is not started"/>
+    <CheckBoxPreference
+        android:title="Kodi installed locally"
+        android:defaultValue="true"
+        android:summary="Application will start locally installed Kodi if it is not running"
+        android:key="locally" />
+    <EditTextPreference
+        android:title="Kodi host"
+        android:enabled="false"
+        android:defaultValue="127.0.0.1"
+        android:key="host"
+        android:summary="Kodi IP address, default is 127.0.0.1"/>
+</PreferenceScreen>

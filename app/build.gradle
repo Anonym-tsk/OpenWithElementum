@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'OpenWithElementum'
+            keyPassword 'OpenWithElementum'
+            storeFile file('/Users/nikolay.vasilchuk/AndroidStudioProjects/OpenWithElementum/keys/OpenWithElementum.jks')
+            storePassword '***REMOVED***'
+        }
+    }
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "su.css3.openwithelementum"
+        minSdkVersion 23
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.1"
+        setProperty("archivesBaseName", "OpenWithElementum-" + versionName)
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    buildToolsVersion '27.0.3'
+    dexOptions {
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:support-v4:27.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'com.android.support:design:27.1.0'
+}
