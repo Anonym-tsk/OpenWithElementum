@@ -26,7 +26,7 @@ public class OpenLinkActivity extends Activity {
         if (PreferencesUtils.isLocally(context)) {
             boolean hasKodi = KodiUtils.activateKodi(context);
             if (!hasKodi) {
-                Utils.showMessage(context, "Kodi is not installed");
+                Utils.showMessage(context, context.getResources().getString(R.string.kodi_not_installed));
                 return;
             }
         }
@@ -35,7 +35,7 @@ public class OpenLinkActivity extends Activity {
             @Override
             public void onReady(Boolean status) {
                 if (!status) {
-                    Utils.showMessage(context, "Elementum not available");
+                    Utils.showMessage(context, context.getResources().getString(R.string.elementum_not_available));
                 }
             }
         });
