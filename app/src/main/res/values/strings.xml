@@ -9,4 +9,5 @@
     <string name="pref_locally_description">Application will start locally installed Kodi if it is not running</string>
     <string name="pref_host">Kodi host</string>
     <string name="pref_host_description">Kodi IP address, default is 127.0.0.1</string>
+    <string name="elementum_link_sent">Link sent to Elementum</string>
 </resources>

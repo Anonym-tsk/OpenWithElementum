@@ -31,12 +31,11 @@ public class OpenLinkActivity extends Activity {
             }
         }
 
-        ElementumUtils.playMagnet(context, magnet, new WebService.ResponseListener() {
-            @Override
-            public void onReady(Boolean status) {
-                if (!status) {
-                    Utils.showMessage(context, context.getResources().getString(R.string.elementum_not_available));
-                }
+        Utils.showMessage(context, context.getResources().getString(R.string.elementum_link_sent));
+
+        ElementumUtils.playMagnet(context, magnet, status -> {
+            if (!status) {
+                Utils.showMessage(context, context.getResources().getString(R.string.elementum_not_available));
             }
         });
     }
