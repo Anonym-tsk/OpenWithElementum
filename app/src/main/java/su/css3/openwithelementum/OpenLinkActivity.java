@@ -5,7 +5,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
-import su.css3.openwithelementum.system.WebService;
 import su.css3.openwithelementum.utils.ElementumUtils;
 import su.css3.openwithelementum.utils.KodiUtils;
 import su.css3.openwithelementum.utils.PreferencesUtils;
