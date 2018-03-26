@@ -5,10 +5,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
-import su.css3.openwithelementum.utils.ElementumUtils;
-import su.css3.openwithelementum.utils.KodiUtils;
+import su.css3.openwithelementum.utils.AppUtils;
 import su.css3.openwithelementum.utils.PreferencesUtils;
-import su.css3.openwithelementum.utils.Utils;
 
 public class OpenLinkActivity extends Activity {
 
@@ -22,19 +20,16 @@ public class OpenLinkActivity extends Activity {
     protected void openLink(Uri magnet) {
         final Context context = getApplicationContext();
 
-        if (PreferencesUtils.isLocally(context)) {
-            boolean hasKodi = KodiUtils.activateKodi(context);
-            if (!hasKodi) {
-                Utils.showMessage(context, context.getResources().getString(R.string.kodi_not_installed));
-                return;
-            }
+        String kodiPackageName = PreferencesUtils.getKodiPackageName(context);
+        if (kodiPackageName != null) {
+            AppUtils.activateApp(context, kodiPackageName);
         }
 
-        Utils.showMessage(context, context.getResources().getString(R.string.elementum_link_sent));
+        AppUtils.showMessage(context, context.getResources().getString(R.string.elementum_link_sent));
 
-        ElementumUtils.playMagnet(context, magnet, status -> {
+        AppUtils.playMagnet(context, magnet, status -> {
             if (!status) {
-                Utils.showMessage(context, context.getResources().getString(R.string.elementum_not_available));
+                AppUtils.showMessage(context, context.getResources().getString(R.string.elementum_not_available));
             }
         });
     }

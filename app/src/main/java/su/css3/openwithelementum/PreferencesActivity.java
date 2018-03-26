@@ -1,12 +1,16 @@
 package su.css3.openwithelementum;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
-import android.preference.Preference;
+import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 
+import java.util.List;
+
+import su.css3.openwithelementum.utils.AppUtils;
 import su.css3.openwithelementum.utils.PreferencesUtils;
 
 public class PreferencesActivity extends PreferenceActivity {
@@ -26,38 +30,52 @@ public class PreferencesActivity extends PreferenceActivity {
             addPreferencesFromResource(R.xml.preferences);
 
             final PreferenceScreen preferenceScreen = getPreferenceScreen();
+            final Context context = preferenceScreen.getContext();
 
-            boolean isLocally = getPreferenceManager().getSharedPreferences().getBoolean(PreferencesUtils.KEY_PREF_KODI_LOCALLY, true);
-            preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_HOST).setEnabled(!isLocally);
+            final EditTextPreference hostPref = (EditTextPreference) preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_HOST);
+            final EditTextPreference timeoutPref = (EditTextPreference) preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_TIMEOUT);
+            final ListPreference applicationPref = (ListPreference) preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_APP);
 
-            Preference locallyPref = preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_LOCALLY);
-            locallyPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    boolean isLocally = newValue.toString().equals("true");
-                    preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_HOST).setEnabled(!isLocally);
-                    return true;
-                }
+            // Проверка хоста
+            hostPref.setOnPreferenceChangeListener((preference, newValue) -> newValue.toString().length() >= 3);
+
+            // Проверка таймаута
+            timeoutPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                int timeout = 0;
+                try {
+                    timeout = Integer.parseInt(newValue.toString());
+                } catch (NumberFormatException ignored) {}
+                return timeout >= 3 && timeout <= 60;
             });
 
-            EditTextPreference timeoutPref = (EditTextPreference) preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_TIMEOUT);
-            timeoutPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    int timeout = 0;
-                    try {
-                        timeout = Integer.parseInt(newValue.toString());
-                    } catch (NumberFormatException ignored) {}
-                    return timeout >= 3 && timeout <= 60;
-                }
-            });
+            // Проверка приложения
+            List<CharSequence[]> kodiPackages = AppUtils.getKodiPackages(context);
+            CharSequence[] entryValues = new String[kodiPackages.size() + 1];
+            CharSequence[] entries = new String[kodiPackages.size() + 1];
 
-            EditTextPreference hostPref = (EditTextPreference) preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_HOST);
-            hostPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    return newValue.toString().length() >= 3;
+            entryValues[0] = "";
+            entries[0] = context.getResources().getString(R.string.pref_network_host);
+
+            if (!kodiPackages.isEmpty()) {
+                for (int i = 0; i < kodiPackages.size(); i++) {
+                    CharSequence[] kodiPackage = kodiPackages.get(i);
+                    entryValues[i + 1] = kodiPackage[0];
+                    entries[i + 1] = kodiPackage[1] + " (" + kodiPackage[0] + ")";
                 }
+            }
+
+            applicationPref.setEntries(entries);
+            applicationPref.setEntryValues(entryValues);
+
+            String appName = applicationPref.getValue();
+            if (appName == null || appName.isEmpty() || !AppUtils.isAppInstalled(context, appName)) {
+                applicationPref.setValueIndex(0);
+                hostPref.setEnabled(true);
+            }
+
+            applicationPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                hostPref.setEnabled(newValue.equals(""));
+                return true;
             });
         }
     }

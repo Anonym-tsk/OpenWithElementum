@@ -1,12 +1,12 @@
 <resources>
-    <string name="kodi_not_installed">Kodi не установлен</string>
     <string name="elementum_not_available">Elementum недоступен</string>
     <string name="pref_wait_timeout">Таймаут ожидания Elementum</string>
     <string name="pref_timeout_title">Таймаут (3-60 секунд)</string>
     <string name="pref_timeout_description">Приложение будет ожидать Elementum, если он не запущен</string>
-    <string name="pref_locally">Kodi установлен локально</string>
-    <string name="pref_locally_description">Kodi будет запущен при передаче ссылки, если он установлен локально</string>
-    <string name="pref_host">Адрес Kodi</string>
+    <string name="pref_host">Сетевой адрес Kodi</string>
     <string name="pref_host_description">IP адрес Kodi, по умолчанию 127.0.0.1</string>
     <string name="elementum_link_sent">Ссылка отправлена в Elementum</string>
+    <string name="pref_select_app">Приложение для запуска</string>
+    <string name="pref_select_app_description">Выберите приложение, которое будет запущено при открытии ссылки</string>
+    <string name="pref_network_host">Kodi в локальной сети</string>
 </resources>

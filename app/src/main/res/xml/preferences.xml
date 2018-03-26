@@ -7,11 +7,10 @@
         android:dialogTitle="@string/pref_timeout_title"
         android:inputType="number"
         android:summary="@string/pref_timeout_description"/>
-    <CheckBoxPreference
-        android:title="@string/pref_locally"
-        android:defaultValue="true"
-        android:summary="@string/pref_locally_description"
-        android:key="locally" />
+    <ListPreference
+        android:title="@string/pref_select_app"
+        android:key="application"
+        android:summary="@string/pref_select_app_description"/>
     <EditTextPreference
         android:title="@string/pref_host"
         android:enabled="false"

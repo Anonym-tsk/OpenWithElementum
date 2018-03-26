@@ -6,15 +6,10 @@ import android.preference.PreferenceManager;
 
 public class PreferencesUtils {
     public static final String KEY_PREF_KODI_TIMEOUT = "timeout";
-    public static final String KEY_PREF_KODI_LOCALLY = "locally";
     public static final String KEY_PREF_KODI_HOST = "host";
+    public static final String KEY_PREF_KODI_APP = "application";
 
     public static final String LOCALHOST = "127.0.0.1";
-
-    public static boolean isLocally(Context context) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return sharedPreferences.getBoolean(KEY_PREF_KODI_LOCALLY, true);
-    }
 
     public static int getTimeout(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -26,10 +21,22 @@ public class PreferencesUtils {
     }
 
     public static String getHost(Context context) {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        if (sharedPreferences.getBoolean(KEY_PREF_KODI_LOCALLY, true)) {
+        String kodiPackageName = getKodiPackageName(context);
+        if (kodiPackageName == null) {
             return LOCALHOST;
         }
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         return sharedPreferences.getString(KEY_PREF_KODI_HOST, LOCALHOST);
+    }
+
+    public static String getKodiPackageName(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        String packageName = sharedPreferences.getString(KEY_PREF_KODI_APP, "");
+
+        if (!packageName.isEmpty() && AppUtils.isAppInstalled(context, packageName)) {
+            return packageName;
+        }
+        return null;
     }
 }
