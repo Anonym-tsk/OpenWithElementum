@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.text.Html;
 
 import su.css3.openwithelementum.R;
 
@@ -13,8 +12,8 @@ class UpdateDialog {
     static void show(final Context context, String name, String content, final String downloadUrl) {
         if (isContextValid(context)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle(Html.fromHtml(name));
-            builder.setMessage(Html.fromHtml(content));
+            builder.setTitle(name);
+            builder.setMessage(content);
             builder.setPositiveButton(R.string.update_dialog_btn_download, (dialog, id) -> goToDownload(context, downloadUrl));
             builder.setNegativeButton(R.string.update_dialog_btn_cancel, (dialog, id) -> {});
 
