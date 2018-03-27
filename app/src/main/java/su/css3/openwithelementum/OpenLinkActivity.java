@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import su.css3.openwithelementum.update.UpdateChecker;
 import su.css3.openwithelementum.utils.AppUtils;
 import su.css3.openwithelementum.utils.PreferencesUtils;
 
@@ -32,5 +33,7 @@ public class OpenLinkActivity extends Activity {
                 AppUtils.showMessage(context, R.string.elementum_not_available);
             }
         });
+
+        UpdateChecker.checkForToast(context);
     }
 }

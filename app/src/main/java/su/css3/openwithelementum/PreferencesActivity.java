@@ -22,6 +22,7 @@ public class PreferencesActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction().replace(android.R.id.content, fragment).commit();
+        UpdateChecker.checkForToast(this);
     }
 
     public static class MyPreferenceFragment extends PreferenceFragment {

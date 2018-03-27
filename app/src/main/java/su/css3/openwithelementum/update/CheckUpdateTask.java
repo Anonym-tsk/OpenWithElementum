@@ -10,6 +10,7 @@ import org.json.JSONObject;
 
 import su.css3.openwithelementum.R;
 import su.css3.openwithelementum.utils.AppUtils;
+import su.css3.openwithelementum.utils.PreferencesUtils;
 
 class CheckUpdateTask extends AsyncTask<Void, Void, String> {
 
@@ -41,6 +42,7 @@ class CheckUpdateTask extends AsyncTask<Void, Void, String> {
             dialog.dismiss();
         }
         parseJson(result);
+        PreferencesUtils.setLastUpdateTime(mContext);
     }
 
     private void parseJson(String result) {

@@ -9,8 +9,10 @@ public class PreferencesUtils {
     public static final String KEY_PREF_KODI_HOST = "host";
     public static final String KEY_PREF_KODI_APP = "application";
     public static final String KEY_PREF_UPDATE = "update";
+    public static final String KEY_PREF_LAST_UPDATE = "lastupdate";
 
-    public static final String LOCALHOST = "127.0.0.1";
+    private static final String LOCALHOST = "127.0.0.1";
+    private static final long UPDATE_INTERVAL = 24 * 60 * 60 * 1000;
 
     public static int getTimeout(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -39,5 +41,15 @@ public class PreferencesUtils {
             return packageName;
         }
         return null;
+    }
+
+    public static boolean isNeedCheckUpdate(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return System.currentTimeMillis() - sharedPreferences.getLong(KEY_PREF_LAST_UPDATE, 0) > UPDATE_INTERVAL;
+    }
+
+    public static void setLastUpdateTime(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        sharedPreferences.edit().putLong(KEY_PREF_LAST_UPDATE, System.currentTimeMillis()).apply();
     }
 }

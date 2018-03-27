@@ -2,6 +2,8 @@ package su.css3.openwithelementum.update;
 
 import android.content.Context;
 
+import su.css3.openwithelementum.utils.PreferencesUtils;
+
 public class UpdateChecker {
 
     public static void checkForDialog(Context context) {
@@ -9,6 +11,8 @@ public class UpdateChecker {
     }
 
     public static void checkForToast(Context context) {
-        new CheckUpdateTask(context, CheckUpdateTask.TYPE_TOAST).execute();
+        if (PreferencesUtils.isNeedCheckUpdate(context)) {
+            new CheckUpdateTask(context, CheckUpdateTask.TYPE_TOAST).execute();
+        }
     }
 }
