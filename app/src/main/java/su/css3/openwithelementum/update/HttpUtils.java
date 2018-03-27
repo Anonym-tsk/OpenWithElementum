@@ -4,20 +4,25 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
+
+import su.css3.openwithelementum.system.TLSSocketFactory;
 
 public class HttpUtils {
 
     public static String get(String urlStr) {
-        HttpURLConnection urlConnection = null;
+        HttpsURLConnection urlConnection = null;
         InputStream inputStream = null;
         BufferedReader buffer = null;
         String result = null;
 
         try {
+            HttpsURLConnection.setDefaultSSLSocketFactory(new TLSSocketFactory());
+
             URL url = new URL(urlStr);
-            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection = (HttpsURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
 
             inputStream = urlConnection.getInputStream();
