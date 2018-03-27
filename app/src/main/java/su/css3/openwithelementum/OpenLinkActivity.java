@@ -25,11 +25,11 @@ public class OpenLinkActivity extends Activity {
             AppUtils.activateApp(context, kodiPackageName);
         }
 
-        AppUtils.showMessage(context, context.getResources().getString(R.string.elementum_link_sent));
+        AppUtils.showMessage(context, R.string.elementum_link_sent);
 
         AppUtils.playMagnet(context, magnet, status -> {
             if (!status) {
-                AppUtils.showMessage(context, context.getResources().getString(R.string.elementum_not_available));
+                AppUtils.showMessage(context, R.string.elementum_not_available);
             }
         });
     }

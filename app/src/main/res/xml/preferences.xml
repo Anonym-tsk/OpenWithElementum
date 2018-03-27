@@ -17,4 +17,7 @@
         android:defaultValue="127.0.0.1"
         android:key="host"
         android:summary="@string/pref_host_description"/>
+    <Preference
+        android:title="@string/pref_check_updates"
+        android:key="update"/>
 </PreferenceScreen>

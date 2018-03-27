@@ -1,7 +1,7 @@
 <resources>
     <string name="elementum_not_available">Elementum недоступен</string>
     <string name="pref_wait_timeout">Таймаут ожидания Elementum</string>
-    <string name="pref_timeout_title">Таймаут (3-60 секунд)</string>
+    <string name="pref_timeout_title">Таймаут (3–60 секунд)</string>
     <string name="pref_timeout_description">Приложение будет ожидать Elementum, если он не запущен</string>
     <string name="pref_host">Сетевой адрес Kodi</string>
     <string name="pref_host_description">IP адрес Kodi, по умолчанию 127.0.0.1</string>
@@ -9,4 +9,14 @@
     <string name="pref_select_app">Приложение для запуска</string>
     <string name="pref_select_app_description">Выберите приложение, которое будет запущено при открытии ссылки</string>
     <string name="pref_network_host">Kodi в локальной сети</string>
+    <string name="pref_check_updates">Проверить обновления</string>
+
+    <string name="update_dialog_btn_download">Обновить сейчас</string>
+    <string name="update_dialog_btn_cancel">Позже</string>
+    <string name="update_toast_no_new_update">Уже установлена последняя версия</string>
+    <string name="update_dialog_checking">Проверка обновлений</string>
+    <string name="update_notify_toast">Доступно обновление Open with Elementum</string>
+    <string name="update_check_error">Ошибка проверки обновлений. Попробуйте позже</string>
+    <string name="update_notification_channel">Загрузка обновлений</string>
+    <string name="update_download_title">Загрузка обновления</string>
 </resources>

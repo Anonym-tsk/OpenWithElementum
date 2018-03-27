@@ -8,6 +8,7 @@ public class PreferencesUtils {
     public static final String KEY_PREF_KODI_TIMEOUT = "timeout";
     public static final String KEY_PREF_KODI_HOST = "host";
     public static final String KEY_PREF_KODI_APP = "application";
+    public static final String KEY_PREF_UPDATE = "update";
 
     public static final String LOCALHOST = "127.0.0.1";
 

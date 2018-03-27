@@ -4,12 +4,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
 
 import java.util.List;
 
+import su.css3.openwithelementum.update.UpdateChecker;
 import su.css3.openwithelementum.utils.AppUtils;
 import su.css3.openwithelementum.utils.PreferencesUtils;
 
@@ -29,12 +30,12 @@ public class PreferencesActivity extends PreferenceActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
 
-            final PreferenceScreen preferenceScreen = getPreferenceScreen();
-            final Context context = preferenceScreen.getContext();
+            final Context context = getPreferenceScreen().getContext();
 
-            final EditTextPreference hostPref = (EditTextPreference) preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_HOST);
-            final EditTextPreference timeoutPref = (EditTextPreference) preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_TIMEOUT);
-            final ListPreference applicationPref = (ListPreference) preferenceScreen.findPreference(PreferencesUtils.KEY_PREF_KODI_APP);
+            final EditTextPreference hostPref = (EditTextPreference) findPreference(PreferencesUtils.KEY_PREF_KODI_HOST);
+            final EditTextPreference timeoutPref = (EditTextPreference) findPreference(PreferencesUtils.KEY_PREF_KODI_TIMEOUT);
+            final ListPreference applicationPref = (ListPreference) findPreference(PreferencesUtils.KEY_PREF_KODI_APP);
+            final Preference prefUpdate = findPreference(PreferencesUtils.KEY_PREF_UPDATE);
 
             // Проверка хоста
             hostPref.setOnPreferenceChangeListener((preference, newValue) -> newValue.toString().length() >= 3);
@@ -75,6 +76,12 @@ public class PreferencesActivity extends PreferenceActivity {
 
             applicationPref.setOnPreferenceChangeListener((preference, newValue) -> {
                 hostPref.setEnabled(newValue.equals(""));
+                return true;
+            });
+
+            // Проверка обновлений
+            prefUpdate.setOnPreferenceClickListener(preference -> {
+                UpdateChecker.checkForDialog(context);
                 return true;
             });
         }

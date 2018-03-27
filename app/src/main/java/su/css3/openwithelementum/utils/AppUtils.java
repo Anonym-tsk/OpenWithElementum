@@ -46,8 +46,8 @@ public class AppUtils {
         context.startActivity(context.getPackageManager().getLaunchIntentForPackage(packageName));
     }
 
-    public static void showMessage(Context context, String text) {
-        Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+    public static void showMessage(Context context, int stringId) {
+        Toast.makeText(context, context.getString(stringId), Toast.LENGTH_LONG).show();
     }
 
     public static void playMagnet(Context context, Uri magnetUrl, WebService.ResponseListener listener) {

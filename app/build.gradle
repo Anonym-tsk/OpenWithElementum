@@ -5,8 +5,7 @@ android {
         config {
             keyAlias 'OpenWithElementum'
             keyPassword 'OpenWithElementum'
-            storeFile file('/Users/nikolay.vasilchuk/AndroidStudioProjects/OpenWithElementum/keys/OpenWithElementum.jks')
-            storePassword '***REMOVED***'
+            storeFile file('../keys/OpenWithElementum.jks')
         }
     }
     compileSdkVersion 26
@@ -68,9 +67,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:support-v4:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
