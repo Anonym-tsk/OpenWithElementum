@@ -25,7 +25,7 @@ public class PreferencesUtils {
 
     public static String getHost(Context context) {
         String kodiPackageName = getKodiPackageName(context);
-        if (kodiPackageName == null) {
+        if (kodiPackageName != null) {
             return LOCALHOST;
         }
 
