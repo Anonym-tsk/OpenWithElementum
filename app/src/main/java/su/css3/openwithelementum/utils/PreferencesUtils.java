@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import java.util.List;
+
 public class PreferencesUtils {
     public static final String KEY_PREF_KODI_TIMEOUT = "timeout";
     public static final String KEY_PREF_KODI_HOST = "host";
@@ -35,12 +37,14 @@ public class PreferencesUtils {
 
     public static String getKodiPackageName(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String packageName = sharedPreferences.getString(KEY_PREF_KODI_APP, "");
+        String packageName = sharedPreferences.getString(KEY_PREF_KODI_APP, null);
+        List<CharSequence[]> kodiPackages = AppUtils.getKodiPackages(context);
 
-        if (!packageName.isEmpty() && AppUtils.isAppInstalled(context, packageName)) {
-            return packageName;
+        if (packageName == null) {
+            return kodiPackages.isEmpty() ? null : kodiPackages.get(0)[0].toString();
         }
-        return null;
+
+        return !packageName.isEmpty() && AppUtils.isAppInstalled(context, packageName) ? packageName : null;
     }
 
     public static boolean isNeedCheckUpdate(Context context) {

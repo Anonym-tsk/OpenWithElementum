@@ -70,9 +70,17 @@ public class PreferencesActivity extends PreferenceActivity {
             applicationPref.setEntryValues(entryValues);
 
             String appName = applicationPref.getValue();
-            if (appName == null || appName.isEmpty() || !AppUtils.isAppInstalled(context, appName)) {
+
+            if (appName != null && !appName.isEmpty() && !AppUtils.isAppInstalled(context, appName)) {
+                // Если приложение выбрано, но было удалено, сбрасываем сохраненное приложение
+                appName = null;
+            }
+
+            if ((appName != null && appName.isEmpty()) || (appName == null && kodiPackages.isEmpty())) {
                 applicationPref.setValueIndex(0);
                 hostPref.setEnabled(true);
+            } else if (appName == null && !kodiPackages.isEmpty()) {
+                applicationPref.setValueIndex(1);
             }
 
             applicationPref.setOnPreferenceChangeListener((preference, newValue) -> {
@@ -87,5 +95,4 @@ public class PreferencesActivity extends PreferenceActivity {
             });
         }
     }
-
 }
