@@ -20,4 +20,5 @@
     <string name="update_notification_channel">Загрузка обновлений</string>
     <string name="update_download_title">Загрузка обновления</string>
     <string name="torrent_file_broken">Торрент файл повреждён</string>
+    <string name="need_permission_filesystem">Предоставьте разрешение на доступ к файлам</string>
 </resources>

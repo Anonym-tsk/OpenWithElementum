@@ -52,6 +52,8 @@ public class OpenLinkActivity extends Activity {
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         if (requestCode == PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             openTorrent(this.link);
+        } else {
+            AppUtils.showMessage(getApplicationContext(), R.string.need_permission_filesystem);
         }
         finish();
     }
