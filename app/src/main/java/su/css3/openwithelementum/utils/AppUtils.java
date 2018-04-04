@@ -3,7 +3,6 @@ package su.css3.openwithelementum.utils;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.widget.Toast;
 
 import java.io.UnsupportedEncodingException;
@@ -50,12 +49,12 @@ public class AppUtils {
         Toast.makeText(context, context.getString(stringId), Toast.LENGTH_LONG).show();
     }
 
-    public static void playMagnet(Context context, Uri magnetUrl, WebService.ResponseListener listener) {
+    public static void playMagnet(Context context, String magnetUrl, WebService.ResponseListener listener) {
         final String host = PreferencesUtils.getHost(context);
         final int maxAttempts = PreferencesUtils.getTimeout(context);
 
         try {
-            String link = "http://" + host + ":65220/playuri?uri=" + URLEncoder.encode(magnetUrl.toString(), "UTF-8");
+            String link = "http://" + host + ":65220/playuri?uri=" + URLEncoder.encode(magnetUrl, "UTF-8");
             new WebService(link, listener, maxAttempts).execute();
         } catch (UnsupportedEncodingException e) {
             listener.onReady(false);
