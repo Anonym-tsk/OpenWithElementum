@@ -1,6 +1,8 @@
-[![Последняя версия](http://owe.css3.su/banner.php)](https://github.com/Anonym-tsk/OpenWithElementum/releases)
-
-### Open With Elementum
+## Open With Elementum
+[![GitHub Release](https://github-basic-badges.herokuapp.com/release/Anonym-tsk/OpenWithElementum.svg?color=blue)](https://github.com/Anonym-tsk/OpenWithElementum/releases)
+[![GitHub Download Count](https://github-basic-badges.herokuapp.com/downloads/Anonym-tsk/OpenWithElementum/total.svg?color=yellow)](https://github.com/Anonym-tsk/OpenWithElementum/releases)
+[![GitHub Issues Open](https://github-basic-badges.herokuapp.com/issues/Anonym-tsk/OpenWithElementum.svg)](https://github.com/Anonym-tsk/OpenWithElementum/issues)
+[![HitCount](http://hits.dwyl.io/Anonym-tsk/OpenWithElementum.svg)](https://github.com/Anonym-tsk/OpenWithElementum)
 
 Программа позволяет открывать magnet ссылки и .torrent файлы с помощью [Elementum](http://elementum.surge.sh/) (дополнение для медиацентра [Kodi](https://kodi.tv/)).
 Поддерживаются медиацентры [Kodi](https://kodi.tv/), [SPMC](http://spmc.semperpax.com/), [ZDMC](https://www.zidoo.tv/Support/release_apk.html).
