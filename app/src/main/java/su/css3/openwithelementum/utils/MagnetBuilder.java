@@ -15,7 +15,7 @@ public class MagnetBuilder {
     private String hash;
     private String fileName;
     private String tracker;
-    private Integer fileSize;
+    private Long fileSize;
 
     public void setHash(String hash) {
         this.hash = hash;
@@ -29,7 +29,7 @@ public class MagnetBuilder {
         this.tracker = tracker;
     }
 
-    public void setFileSize(Integer fileSize) {
+    public void setFileSize(Long fileSize) {
         this.fileSize = fileSize;
     }
 
@@ -69,7 +69,7 @@ public class MagnetBuilder {
         magnet.setFileName(infoName.toString());
 
         BencodeInt infoLength = (BencodeInt) info.get("length");
-        magnet.setFileSize(infoLength.getInt());
+        magnet.setFileSize(infoLength.getLong());
 
         BencodeString announce = (BencodeString) torrentData.get("announce");
         magnet.setTracker(announce.toString());

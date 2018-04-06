@@ -35,11 +35,11 @@ public class Bencode {
 
     private static BencodeObject parseBencodeInt(PushbackInputStream in) throws IOException {
         parseBencodeExpect(in, 'i');
-        return new BencodeInt(parseBencodeReadInt(in));
+        return new BencodeInt(parseBencodeReadLong(in));
     }
 
-    private static int parseBencodeReadInt(PushbackInputStream in) throws IOException {
-        int result=0;
+    private static long parseBencodeReadLong(PushbackInputStream in) throws IOException {
+        long result=0;
 
         while (true) {
             int b=in.read();
@@ -52,7 +52,7 @@ public class Bencode {
     }
 
     private static BencodeObject parseBencodeString(PushbackInputStream in) throws IOException {
-        int len = parseBencodeReadInt(in);
+        int len = (int) parseBencodeReadLong(in);
 
         byte[] bs = new byte[len];
         int pos = 0;
