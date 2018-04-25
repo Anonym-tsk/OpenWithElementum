@@ -66,13 +66,19 @@ public class MagnetBuilder {
         magnet.setHash(infoHash);
 
         BencodeString infoName = (BencodeString) info.get("name");
-        magnet.setFileName(infoName.toString());
+        if (infoName != null) {
+            magnet.setFileName(infoName.toString());
+        }
 
         BencodeInt infoLength = (BencodeInt) info.get("length");
-        magnet.setFileSize(infoLength.getLong());
+        if (infoLength != null) {
+            magnet.setFileSize(infoLength.getLong());
+        }
 
         BencodeString announce = (BencodeString) torrentData.get("announce");
-        magnet.setTracker(announce.toString());
+        if (announce != null) {
+            magnet.setTracker(announce.toString());
+        }
 
         return magnet.getLink();
     }
