@@ -21,7 +21,12 @@ public class AppUtils {
 
         for (ApplicationInfo packageInfo : packages) {
             String packageName = packageInfo.packageName;
-            if (packageInfo.enabled && (packageName.startsWith("org.xbmc.kodi") || packageName.startsWith("com.semperpax.spmc") || packageName.startsWith("com.zidoo.zdmc"))) {
+            if (packageInfo.enabled && (
+                    packageName.startsWith("org.xbmc.kodi")
+                    || packageName.startsWith("com.semperpax.spmc")
+                    || packageName.startsWith("com.zidoo.zdmc")
+                    || packageName.startsWith("org.xbmc.ftmc")
+                    )) {
                 CharSequence[] item = {packageName, packageInfo.loadLabel(packageManager)};
                 result.add(item);
             }
