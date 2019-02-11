@@ -5,7 +5,7 @@
 [![HitCount](http://hits.dwyl.io/Anonym-tsk/OpenWithElementum.svg)](https://github.com/Anonym-tsk/OpenWithElementum)
 
 Программа позволяет открывать magnet ссылки и .torrent файлы с помощью [Elementum](http://elementum.surge.sh/) (дополнение для медиацентра [Kodi](https://kodi.tv/)).
-Поддерживаются медиацентры [Kodi](https://kodi.tv/), [SPMC](http://spmc.semperpax.com/), [ZDMC](https://www.zidoo.tv/Support/release_apk.html).
+Поддерживаются медиацентры [Kodi](https://kodi.tv/), [SPMC](http://spmc.semperpax.com/), [ZDMC](https://www.zidoo.tv/Support/release_apk.html), [FTMC](https://forum.freaktab.com/forum/tv-player-support/general-tv-player-dicussions/xbmc-talk/575588-ftmc-jarvis-16-2-31).
 Можно использовать совместно с [HD VideoBox](https://dkc7dev.com/hdvideobox/) и открывать торренты сразу в Kodi.
 
 * [Обсуждение на 4pda](http://4pda.ru/forum/index.php?showtopic=893510&st=160#entry72103577)
