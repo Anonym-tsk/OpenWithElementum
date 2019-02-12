@@ -4,7 +4,7 @@
 [![Open Issues](https://img.shields.io/github/issues-raw/Anonym-tsk/OpenWithElementum.svg?style=flat-square)](https://github.com/Anonym-tsk/OpenWithElementum/issues)
 [![HitCount](http://hits.dwyl.io/Anonym-tsk/OpenWithElementum.svg)](https://github.com/Anonym-tsk/OpenWithElementum)
 
-Программа позволяет открывать magnet ссылки и .torrent файлы с помощью [Elementum](http://elementum.surge.sh/) (дополнение для медиацентра [Kodi](https://kodi.tv/)).
+Программа позволяет открывать magnet ссылки и .torrent файлы с помощью [Elementum](http://elementum.surge.sh/) (дополнение для медиацентра [Kodi](https://kodi.tv/)) или [TorrServe](https://4pda.ru/forum/index.php?showtopic=889960) (с плагином [plugin.video.torrserve](https://github.com/Nemiroff/plugin.video.torrserve)).
 Поддерживаются медиацентры [Kodi](https://kodi.tv/), [SPMC](http://spmc.semperpax.com/), [ZDMC](https://www.zidoo.tv/Support/release_apk.html), [FTMC](https://forum.freaktab.com/forum/tv-player-support/general-tv-player-dicussions/xbmc-talk/575588-ftmc-jarvis-16-2-31).
 Можно использовать совместно с [HD VideoBox](https://dkc7dev.com/hdvideobox/) и открывать торренты сразу в Kodi.
 
