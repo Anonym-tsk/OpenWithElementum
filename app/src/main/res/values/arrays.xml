@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="services">
+    <string-array name="services" translatable="false">
         <item>Elementum</item>
         <item>TorrServe</item>
     </string-array>
