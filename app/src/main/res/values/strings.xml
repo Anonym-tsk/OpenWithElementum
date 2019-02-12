@@ -1,25 +1,27 @@
 <resources>
     <string name="app_name" translatable="false">Open with Elementum</string>
-    <string name="elementum_not_available">Elementum not available</string>
-    <string name="pref_wait_timeout">Elementum wait timeout</string>
+    <string name="service_not_available">%s is not available</string>
+    <string name="pref_service_title">Service</string>
+    <string name="pref_service_description">Elementum and TorrServe supported</string>
+    <string name="pref_wait_timeout">Wait timeout</string>
     <string name="pref_timeout_title">Timeout (3–60 seconds)</string>
-    <string name="pref_timeout_description">Application will wait Elementum if it is not started</string>
+    <string name="pref_timeout_description">Application will wait Elementum/TorrServe if it is not started</string>
     <string name="pref_host">Kodi network address</string>
     <string name="pref_host_description">Kodi IP address, default is 127.0.0.1</string>
-    <string name="elementum_link_sent">Link sent to Elementum</string>
-    <string name="pref_select_app">Run application</string>
+    <string name="service_link_sent">Link has been sent to %s</string>
+    <string name="pref_select_app">Application to run</string>
     <string name="pref_select_app_description">Select application that will be launched when you open link</string>
     <string name="pref_network_host">Kodi in local network</string>
     <string name="pref_check_updates">Check for updates</string>
 
     <string name="update_dialog_btn_download">Update now</string>
     <string name="update_dialog_btn_cancel">Later</string>
-    <string name="update_toast_no_new_update">Latest version already installed</string>
+    <string name="update_toast_no_new_update">The latest version is already installed</string>
     <string name="update_dialog_checking">Checking for updates</string>
     <string name="update_notify_toast">Open with Elementum update available</string>
-    <string name="update_check_error">Error checking updates. Please try again later</string>
+    <string name="update_check_error">Error checking for updates. Please try again later</string>
     <string name="update_notification_channel">Download update progress</string>
     <string name="update_download_title">Downloading update</string>
-    <string name="torrent_file_broken">Torrent file broken</string>
+    <string name="torrent_file_broken">Torrent file is broken</string>
     <string name="need_permission_filesystem">Please grant permission to read files</string>
 </resources>

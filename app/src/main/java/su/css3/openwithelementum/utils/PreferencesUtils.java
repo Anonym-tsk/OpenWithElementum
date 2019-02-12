@@ -7,19 +7,29 @@ import android.preference.PreferenceManager;
 import java.util.List;
 
 public class PreferencesUtils {
+    public static final String KEY_PREF_KODI_SERVICE = "service";
     public static final String KEY_PREF_KODI_TIMEOUT = "timeout";
     public static final String KEY_PREF_KODI_HOST = "host";
     public static final String KEY_PREF_KODI_APP = "application";
     public static final String KEY_PREF_UPDATE = "update";
     public static final String KEY_PREF_LAST_UPDATE = "lastupdate";
 
+    public static final String ELEMENTUM = "Elementum";
+    public static final String TORRSERVE = "TorrServe";
+
     private static final String LOCALHOST = "127.0.0.1";
+    private static final String DEFAULT_TIMEOUT = "10";
     private static final long UPDATE_INTERVAL = 24 * 60 * 60 * 1000;
+
+    public static String getService(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPreferences.getString(KEY_PREF_KODI_SERVICE, ELEMENTUM);
+    }
 
     public static int getTimeout(Context context) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         try {
-            return Integer.parseInt(sharedPreferences.getString(KEY_PREF_KODI_TIMEOUT, "10"));
+            return Integer.parseInt(sharedPreferences.getString(KEY_PREF_KODI_TIMEOUT, DEFAULT_TIMEOUT));
         } catch (NumberFormatException e) {
             return 10;
         }

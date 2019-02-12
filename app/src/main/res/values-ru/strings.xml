@@ -1,11 +1,13 @@
 <resources>
-    <string name="elementum_not_available">Elementum недоступен</string>
-    <string name="pref_wait_timeout">Таймаут ожидания Elementum</string>
+    <string name="service_not_available">%s недоступен</string>
+    <string name="pref_service_title">Используемый сервис</string>
+    <string name="pref_service_description">Поддерживаются Elementum и TorrServe</string>
+    <string name="pref_wait_timeout">Таймаут ожидания</string>
     <string name="pref_timeout_title">Таймаут (3–60 секунд)</string>
-    <string name="pref_timeout_description">Приложение будет ожидать Elementum, если он не запущен</string>
+    <string name="pref_timeout_description">Приложение будет ожидать Elementum/TorrServe, если он не запущен</string>
     <string name="pref_host">Сетевой адрес Kodi</string>
     <string name="pref_host_description">IP адрес Kodi, по умолчанию 127.0.0.1</string>
-    <string name="elementum_link_sent">Ссылка отправлена в Elementum</string>
+    <string name="service_link_sent">Ссылка отправлена в %s</string>
     <string name="pref_select_app">Приложение для запуска</string>
     <string name="pref_select_app_description">Выберите приложение, которое будет запущено при открытии ссылки</string>
     <string name="pref_network_host">Kodi в локальной сети</string>

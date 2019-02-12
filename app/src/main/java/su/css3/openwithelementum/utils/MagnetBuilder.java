@@ -5,6 +5,8 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 import su.css3.openwithelementum.bencode.Bencode;
 import su.css3.openwithelementum.bencode.BencodeInt;
@@ -33,7 +35,7 @@ public class MagnetBuilder {
         this.fileSize = fileSize;
     }
 
-    public String getLink() {
+    public String getLink() throws UnsupportedEncodingException {
         if (this.hash == null) {
             return null;
         }
@@ -42,11 +44,11 @@ public class MagnetBuilder {
         magnet.append("?xt=urn:btih:").append(this.hash);
 
         if (this.tracker != null) {
-            magnet.append("&tr=").append(this.tracker);
+            magnet.append("&tr=").append(URLEncoder.encode(this.tracker, "UTF-8"));
         }
 
         if (this.fileName != null) {
-            magnet.append("&dn=").append(this.fileName);
+            magnet.append("&dn=").append(URLEncoder.encode(this.fileName, "UTF-8"));
         }
 
         if (this.fileSize != null) {

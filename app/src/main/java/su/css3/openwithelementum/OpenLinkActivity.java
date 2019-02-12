@@ -81,16 +81,17 @@ public class OpenLinkActivity extends Activity {
     protected void openLink(String magnet) {
         final Context context = getApplicationContext();
 
+        String service = PreferencesUtils.getService(context);
         String kodiPackageName = PreferencesUtils.getKodiPackageName(context);
         if (kodiPackageName != null) {
             AppUtils.activateApp(context, kodiPackageName);
         }
 
-        AppUtils.showMessage(context, R.string.elementum_link_sent);
+        AppUtils.showMessage(context, R.string.service_link_sent, service);
 
         AppUtils.playMagnet(context, magnet, status -> {
             if (!status) {
-                AppUtils.showMessage(context, R.string.elementum_not_available);
+                AppUtils.showMessage(context, R.string.service_not_available, service);
             }
         });
 
