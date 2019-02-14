@@ -57,7 +57,6 @@ android {
             signingConfig signingConfigs.config
         }
     }
-    buildToolsVersion '27.0.3'
     dexOptions {
     }
     compileOptions {
@@ -69,5 +68,5 @@ android {
 dependencies {
     implementation 'com.android.support:support-v4:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'commons-codec:commons-codec:1.9'
+    api 'commons-codec:commons-codec:1.9'
 }
