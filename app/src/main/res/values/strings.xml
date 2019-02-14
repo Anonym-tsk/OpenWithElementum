@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Open with Elementum</string>
+    <string name="app_name" translatable="false">Klay</string>
     <string name="service_not_available">%s is not available</string>
     <string name="pref_service_title">Service</string>
     <string name="pref_service_description">Elementum and TorrServe supported</string>
@@ -18,7 +18,7 @@
     <string name="update_dialog_btn_cancel">Later</string>
     <string name="update_toast_no_new_update">The latest version is already installed</string>
     <string name="update_dialog_checking">Checking for updates</string>
-    <string name="update_notify_toast">Open with Elementum update available</string>
+    <string name="update_notify_toast">Klay update available</string>
     <string name="update_check_error">Error checking for updates. Please try again later</string>
     <string name="update_notification_channel">Download update progress</string>
     <string name="update_download_title">Downloading update</string>

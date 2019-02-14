@@ -17,7 +17,7 @@
     <string name="update_dialog_btn_cancel">Позже</string>
     <string name="update_toast_no_new_update">Уже установлена последняя версия</string>
     <string name="update_dialog_checking">Проверка обновлений</string>
-    <string name="update_notify_toast">Доступно обновление Open with Elementum</string>
+    <string name="update_notify_toast">Доступно обновление Klay</string>
     <string name="update_check_error">Ошибка проверки обновлений. Попробуйте позже</string>
     <string name="update_notification_channel">Загрузка обновлений</string>
     <string name="update_download_title">Загрузка обновления</string>
