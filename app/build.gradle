@@ -44,7 +44,7 @@ android {
             targetSdkVersion 26
             versionCode versionBuild
             versionName versionString
-            setProperty("archivesBaseName", "OpenWithElementum-${versionMajor}.${versionMinor}.${versionPatch}")
+            setProperty("archivesBaseName", "Klay-${versionMajor}.${versionMinor}.${versionPatch}")
         }
     } else {
         throw new GradleException("Could not read version.properties!")
