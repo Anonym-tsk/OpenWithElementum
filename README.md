@@ -11,3 +11,9 @@
 * [Обсуждение на 4pda](http://4pda.ru/forum/index.php?showtopic=893510&st=160)
 * [Курс молодого бойца по HD VideoBox + Kodi/SPMC + Elementum](http://4pda.ru/forum/index.php?showtopic=818089&st=5220#entry71708853)
 * [Инструкция 2.0 для просмотра торрентов в онлайне через движок elementum](http://4pda.ru/forum/index.php?showtopic=772588&st=19440#entry70422583)
+
+---
+
+Enjoy my work? Help me out for a couple of :beers: or a :coffee:!
+
+[![coffee](https://www.buymeacoffee.com/assets/img/custom_images/black_img.png)](https://www.buymeacoffee.com/qcDXvboAE)
